@@ -1,0 +1,9 @@
+127.0.0.1 - - [02/Apr/2018:17:04:01 +0300] "GET / HTTP/1.1" 200 418 http-bio-8888-exec-1 254
+127.0.0.1 - - [02/Apr/2018:17:04:01 +0300] "GET /images/knight.jpg HTTP/1.1" 304 - http-bio-8888-exec-2 10
+127.0.0.1 - - [02/Apr/2018:17:04:01 +0300] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8888-exec-3 2
+127.0.0.1 - - [02/Apr/2018:17:04:01 +0300] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8888-exec-5 1
+127.0.0.1 - - [02/Apr/2018:17:04:07 +0300] "GET /signup.jsp HTTP/1.1" 200 913 http-bio-8888-exec-6 6
+127.0.0.1 - - [02/Apr/2018:17:04:07 +0300] "GET /images/signup.jpeg HTTP/1.1" 200 179202 http-bio-8888-exec-7 4
+127.0.0.1 - - [02/Apr/2018:17:04:11 +0300] "GET /order.jsp HTTP/1.1" 200 776 http-bio-8888-exec-8 8
+127.0.0.1 - - [02/Apr/2018:17:04:11 +0300] "GET /images/img.jpeg HTTP/1.1" 200 20776 http-bio-8888-exec-9 4
+127.0.0.1 - - [02/Apr/2018:17:04:27 +0300] "GET /order?typelist=middle+knight&weight=89&18%2B=18%2B HTTP/1.1" 200 192 http-bio-8888-exec-10 4
