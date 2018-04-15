@@ -38,7 +38,11 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="74eed850-85c5-46eb-909a-69c8ea44e7ea">
+        <schema name="mydb" object-types="column, constraint, function, index, procedure, table, dataset trigger, view" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="74eed850-85c5-46eb-909a-69c8ea44e7ea">
@@ -51,6 +55,7 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-list connection-id="74eed850-85c5-46eb-909a-69c8ea44e7ea" dataset="mydb.car" active-filter-id="EMPTY_FILTER" />
     <filter-list connection-id="74eed850-85c5-46eb-909a-69c8ea44e7ea" dataset="mysql.db" active-filter-id="" />
     <filter-list connection-id="74eed850-85c5-46eb-909a-69c8ea44e7ea" dataset="mydb.products" active-filter-id="EMPTY_FILTER">
       <filter id="ada6b785-7b2c-4904-95aa-ab3f9490f613" name="Filter" temporary="false" custom-name="false" type="basic" join-type="AND">

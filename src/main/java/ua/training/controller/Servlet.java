@@ -11,8 +11,7 @@
  */
 package ua.training.controller;
 
-import ua.training.command.ActionFactory;
-import ua.training.command.Command;
+import ua.training.controller.command.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,12 +20,14 @@ import java.io.*;
 
 public class Servlet extends HttpServlet {
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         processRequest(request, response);
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

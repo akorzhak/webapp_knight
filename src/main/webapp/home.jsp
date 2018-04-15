@@ -24,7 +24,7 @@
    <body>
       <center>
          <h1>LIGHT KNIGHT STORE</h1>
-         <a href="registration.jsp"><button class="button">Sign Up!</button></a>
+         <a href="/registration.jsp"><button class="button">Sign Up!</button></a>
          <a href="/order.jsp"><button class="button">View Product List!</button></a>
          <a href="/login.jsp"><button class="button">Sign In!</button></a>
          <br/><br/><br/>

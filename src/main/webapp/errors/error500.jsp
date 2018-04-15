@@ -30,7 +30,7 @@
 		Exception: ${pageContext.exception}
         		<br/>
         Message from exception: ${pageContext.exception.message}<br/><br/>
-        <a href="home.jsp"><button class="button">Go to Home Page</button></a>
+        <a href="/home.jsp"><button class="button">Go to Home Page</button></a>
 		</p></div>
 		</div>
 </body>

@@ -6,7 +6,7 @@
    </head>
    <style>
       body {
-            background-image: url("images/signup.jpeg");
+            background-image: url("/images/signup.jpeg");
             background-repeat: no-repeat;
             background-size: 25%;
       }

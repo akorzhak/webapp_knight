@@ -6,7 +6,7 @@
    </head>
     <style>
       body {
-           background-image: url("images/img.jpeg");
+           background-image: url("/images/img.jpeg");
            background-repeat: no-repeat;
       }
       .ammunition {
@@ -44,11 +44,9 @@
             <option value="rich knight">Rich Knight</option>
          </select>
          <br/>
-         Your weight: <input type="number" name="weight" min="40" max="120" required><br/><br/>
-         <br/>
          <input type="submit" class="button" value="calculate"><br/><br/><br/>
       </center>
-      <% if (request.getAttribute("helmetName") != null) { %>
+      <% if (request.getAttribute("helmet") != null) { %>
       <center>
          <p>YOUR IDEAL AMMUNITION:</p>
          <br/>
@@ -56,37 +54,26 @@
       <div class="ammunition">
          <div>
             <h3>HELMET</h3>
-            <p>${helmetName}</p>
-            <p>description: ${helmetDescription}</p>
-            <p>price: $${helmetPrice}</p>
+            <p>${helmet}</p>
          </div>
          <div>
             <h3>WEAPON</h3>
-            <p>${weaponName}</p>
-            <p>description: ${weaponDescription}</p>
-            <p>price: $${weaponPrice}</p>
+            <p>${weapon}</p>
          </div>
          <div>
             <h3>CHAIN ARMOR</h3>
-            <p>${chainArmorName}</p>
-            <p>description: ${chainArmorDescription}</p>
-            <p>price: $${chainArmorPrice}</p>
+            <p>${chainArmor}</p>
          </div>
          <div>
             <h3>LEG ARMOR</h3>
-            <p>${legArmorName}</p>
-            <p>description: ${legArmorDescription}</p>
-            <p>price: $${legArmorPrice}</p>
+            <p>${legArmor}</p>
          </div>
          <div>
             <h3>VEHICLE</h3>
-            <p>${vehicleName}</p>
-            <p>description: ${vehicleDescription}</p>
-            <p>price: $${vehiclePrice}</p>
+            <p>${vehicle}</p>
          </div>
       </div>
       <center>
-         <p>SIZE: ${size}</p>
          <p>PRICE: $${price}</p>
       </center>
       <% } %>
