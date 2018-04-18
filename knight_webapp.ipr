@@ -40,7 +40,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="74eed850-85c5-46eb-909a-69c8ea44e7ea">
-        <schema name="mydb" object-types="column, constraint, function, index, procedure, table, dataset trigger, view" />
+        <schema name="mydb" object-types="column, function, procedure, table, view" />
       </connection>
     </loaded-nodes>
   </component>
@@ -863,6 +863,17 @@
     </configuration>
   </component>
   <component name="libraryTable">
+    <library name="Maven: javax.servlet:jstl:1.2">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/jstl/1.2/jstl-1.2.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/jstl/1.2/jstl-1.2-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/jstl/1.2/jstl-1.2-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: javax.servlet:servlet-api:2.5">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar!/" />

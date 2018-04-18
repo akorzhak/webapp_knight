@@ -1,0 +1,12 @@
+0:0:0:0:0:0:0:1 - - [16/Apr/2018:15:50:07 +0300] "GET / HTTP/1.1" 200 1253 http-bio-8888-exec-1 297
+0:0:0:0:0:0:0:1 - - [16/Apr/2018:15:50:07 +0300] "GET /style.css HTTP/1.1" 304 - http-bio-8888-exec-6 13
+0:0:0:0:0:0:0:1 - - [16/Apr/2018:15:50:07 +0300] "GET /images/knight.jpg HTTP/1.1" 304 - http-bio-8888-exec-7 10
+0:0:0:0:0:0:0:1 - - [16/Apr/2018:15:50:08 +0300] "GET /favicon.ico HTTP/1.1" 404 963 http-bio-8888-exec-8 110
+0:0:0:0:0:0:0:1 - - [16/Apr/2018:15:50:09 +0300] "GET /order.jsp HTTP/1.1" 200 1422 http-bio-8888-exec-9 24
+0:0:0:0:0:0:0:1 - - [16/Apr/2018:15:50:09 +0300] "GET /images/img.jpeg HTTP/1.1" 304 - http-bio-8888-exec-10 3
+0:0:0:0:0:0:0:1 - - [16/Apr/2018:15:50:13 +0300] "GET /servlet?command=calculate_ammunition&typelist=middle+knight HTTP/1.1" 200 2326 http-bio-8888-exec-1 425
+0:0:0:0:0:0:0:1 - - [16/Apr/2018:15:50:24 +0300] "GET /home.jsp HTTP/1.1" 200 1253 http-bio-8888-exec-1 5
+0:0:0:0:0:0:0:1 - - [16/Apr/2018:15:50:26 +0300] "GET /login.jsp HTTP/1.1" 200 998 http-bio-8888-exec-7 25
+0:0:0:0:0:0:0:1 - - [16/Apr/2018:15:50:26 +0300] "GET /images/login.jpg HTTP/1.1" 304 - http-bio-8888-exec-8 2
+0:0:0:0:0:0:0:1 - - [16/Apr/2018:15:50:30 +0300] "GET /registration.jsp HTTP/1.1" 200 1372 http-bio-8888-exec-8 29
+0:0:0:0:0:0:0:1 - - [16/Apr/2018:15:50:30 +0300] "GET /images/signup.jpeg HTTP/1.1" 304 - http-bio-8888-exec-10 4

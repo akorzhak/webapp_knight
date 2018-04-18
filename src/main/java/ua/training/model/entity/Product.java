@@ -5,11 +5,21 @@ public class Product {
     private String name;
     private long price;
     private String description;
+    private String type;
 
-    public Product(String name, long price, String description) {
+    public Product(String name, long price, String description, String type) {
         this.name = name;
         this.price = price;
         this.description = description;
+        this.type = type;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public Product() {

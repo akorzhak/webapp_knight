@@ -3,80 +3,122 @@
    <head>
       <title>Ideal Ammunition</title>
       <link rel="stylesheet" type="text/css" href="style.css">
+      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
    </head>
-    <style>
+   <style>
       body {
            background-image: url("/images/img.jpeg");
            background-repeat: no-repeat;
       }
-      .ammunition {
+      .request {
            display: flex;
            width: 72%;
            margin: auto;
+
+           justify-content: center;
       }
-      .ammunition > div {
-           background-color: #f1f1f1;
+      .request > div {
            margin: 10px;
-           padding: 20px;
+           padding: 10px;
            font-size: 20px;
-      }
-      h3 {
-           text-align: center;
+           border-style: groove;
+           border-width: 2px;
+           background-color: #eaf2ff;
       }
       .b {
       float: right;
       }
-    </style>
+   </style>
    <body>
-   <div class="b">
-    <a href="/home.jsp" ><button class="button">Go to Home Page</button></a>
-    <a href="/login.jsp" ><button class="button">Sign In!</button></a> &nbsp
-    </div>
-    <br/>
-      <center>
-         <h1>Find Your Ideal Ammunition</h1>
-         <form name="orderForm" method="GET" action="servlet" >
-         <input type="hidden" name="command" value="calculate_ammunition"/>
-         Select type:
-         <select name="typelist">
-            <option value="poor knight">Poor Knight</option>
-            <option value="middle knight">Middle-class Knight</option>
-            <option value="rich knight">Rich Knight</option>
-         </select>
-         <br/>
-         <input type="submit" class="button" value="calculate"><br/><br/><br/>
-      </center>
-      <% if (request.getAttribute("helmet") != null) { %>
-      <center>
-         <p>YOUR IDEAL AMMUNITION:</p>
-         <br/>
-      </center>
-      <div class="ammunition">
-         <div>
-            <h3>HELMET</h3>
-            <p>${helmet}</p>
-         </div>
-         <div>
-            <h3>WEAPON</h3>
-            <p>${weapon}</p>
-         </div>
-         <div>
-            <h3>CHAIN ARMOR</h3>
-            <p>${chainArmor}</p>
-         </div>
-         <div>
-            <h3>LEG ARMOR</h3>
-            <p>${legArmor}</p>
-         </div>
-         <div>
-            <h3>VEHICLE</h3>
-            <p>${vehicle}</p>
-         </div>
+      <div class="b">
+         <a href="/home.jsp" ><button class="button">Go to Home Page</button></a>
+         <a href="/login.jsp" ><button class="button">Sign In!</button></a> &nbsp
       </div>
+      <br/><br/>
       <center>
-         <p>PRICE: $${price}</p>
+         <div class="request">
+            <div>
+               <p>View Full Product List</p>
+               <form name="showAmmunition" method="GET" action="servlet" >
+                  <input type="hidden" name="command" value="show_all_ammunition"/>
+                  <br/><br/>
+                  <input type="submit" class="button" value="show all">
+               </form>
+            </div>
+            <div>
+               <p>Calculate Your Ideal Set</p>
+               <form name="orderForm" method="GET" action="servlet" >
+                  <input type="hidden" name="command" value="calculate_ammunition"/>
+                  Preferable price:
+                  <select name="pricetype">
+                     <option value="low price">Low</option>
+                     <option value="middle price">Middle</option>
+                     <option value="high price">High</option>
+                  </select>
+                  <br/><br/>
+                  <input type="submit" class="button" value="calculate">
+               </form>
+            </div>
+         </div>
+         <c:if test="${products != null}">
+            <table border="1" cellpadding="5">
+               <caption>
+                  <h3>Ammunition List</h3>
+               </caption>
+               <tr>
+                  <th>Type</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Price</th>
+               </tr>
+               <c:forEach var="product" items="${products}" varStatus="loop">
+                  <tr>
+                     <td>
+                        <c:out value = "${product.type}"/>
+                     </td>
+                     <td>
+                        <c:out value = "${product.name}"/>
+                     </td>
+                     <td>
+                        <c:out value = "${product.description}"/>
+                     </td>
+                     <td>
+                        <c:out value = "${product.price}"/>
+                     </td>
+                  </tr>
+               </c:forEach>
+            </table>
+         </c:if>
+         <c:if test="${sorted_products != null}">
+            <table border="1" cellpadding="5">
+               <caption>
+                  <h3>Your Ideal Ammunition</h3>
+               </caption>
+               <tr>
+                  <th>Type</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Price</th>
+               </tr>
+               <c:forEach var="sorted_product" items="${sorted_products}" varStatus="loop">
+                  <tr>
+                     <td>
+                        <c:out value = "${sorted_product.type}"/>
+                     </td>
+                     <td>
+                        <c:out value = "${sorted_product.name}"/>
+                     </td>
+                     <td>
+                        <c:out value = "${sorted_product.description}"/>
+                     </td>
+                     <td>
+                        <c:out value = "${sorted_product.price}"/>
+                     </td>
+                  </tr>
+               </c:forEach>
+            </table><br/>
+            PRICE: $${price}
+         </c:if>
       </center>
-      <% } %>
    </body>
 </html>
-

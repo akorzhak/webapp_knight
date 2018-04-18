@@ -1,50 +1,31 @@
 package ua.training.controller.command;
 
-import ua.training.model.entity.Ammunition;
-import ua.training.model.services.AmmunitionCreation;
-import ua.training.model.services.PageCreation;
+import ua.training.model.dao.DaoFactory;
+import ua.training.model.dao.ProductDao;
+import ua.training.model.dao.implement.JDBCDaoFactory;
+import ua.training.model.entity.Product;
+import ua.training.model.services.PriceCalculatorService;
+
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+
 
 public class CalculateAmmunitionCommand implements Command {
 
-    @Override
-    public String execute(HttpServletRequest request) {
+        private DaoFactory daoFactory = new JDBCDaoFactory();
+        private ProductDao productDao = daoFactory.createProductDao();
+        private PriceCalculatorService priceCalculator = new PriceCalculatorService();
 
-        String helmet = null;
-        String weapon = null;
-        String chainArmor = null;
-        String legArmor = null;
-        String vehicle = null;
-        AmmunitionCreation ammunitionCreation = new AmmunitionCreation();
-        PageCreation pageCreation = new PageCreation();
+        @Override
+        public String execute(HttpServletRequest request) {
 
-        String type = request.getParameter("typelist");
+            String desc = request.getParameter("pricetype");
 
-        if (type.equals("poor knight")) {
-            helmet = "plastic helmet";
-            weapon = "knife";
-            chainArmor = "plastic chain armor";
-            legArmor = "plastic leg armor";
-            vehicle = "donkey";
+            List<Product> products = productDao.findByDesc(desc);
+            request.setAttribute("sorted_products", products);
+            request.removeAttribute("products");
+            request.setAttribute("price", priceCalculator.calculatePrice(products));
+            return "/order.jsp";
         }
-        else if (type.equals("middle knight")) {
-            helmet = "iron helmet";
-            weapon = "iron sword";
-            chainArmor = "iron chain armor";
-            legArmor = "iron leg armor";
-            vehicle = "brown horse";
-        }
-        else if (type.equals("rich knight")) {
-            helmet = "gold helmet";
-            weapon = "gold sword";
-            chainArmor = "gold chain armor";
-            legArmor = "gold leg armor";
-            vehicle = "white horse";
-        }
-
-        Ammunition ammunition = ammunitionCreation.createAmmunition(helmet, weapon, chainArmor, legArmor, vehicle);
-
-        return pageCreation.createAmmunitionPage(ammunition, request);
-    }
 }

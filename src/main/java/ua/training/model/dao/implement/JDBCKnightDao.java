@@ -2,7 +2,7 @@ package ua.training.model.dao.implement;
 
 import ua.training.model.dao.KnightDao;
 import ua.training.model.entity.Knight;
-import ua.training.model.services.LoginLogic;
+import ua.training.model.util.Constants;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -21,15 +21,38 @@ public class JDBCKnightDao implements KnightDao {
 
     @Override
     public boolean create(Knight knight) {
-        String queryAddUser = "INSERT INTO mydb.users (name, age, email, login, password) VALUES ('"
-                + knight.getName() + "', '" + knight.getAge() + "', '" + knight.getEmail() + "', '"
-                + knight.getLogin() + "', '" + knight.getPassword() + "')";
+
+        String queryAddUser = Constants.ADD_USER_QUERY + knight.getName() + "', '" + knight.getAge() + "', '"
+                + knight.getEmail() + "', '" + knight.getLogin() + "', '" + knight.getPassword() + "')";
 
         try (Statement statement = connection.createStatement()) {
-            if (!LoginLogic.isUniqueLogin(statement, knight.getLogin())) {
+            if (!isUniqueLogin(statement, knight.getLogin())) {
                 return false;
             }
             statement.execute(queryAddUser);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
+
+    /**
+     * Checks input login for uniqueness
+     * @param statement
+     * @param login
+     * @return true - if login is already in use;
+     *         false - if login is unique;
+     */
+
+    public boolean isUniqueLogin(Statement statement, String login) {
+
+        String isFreeLoginQuery = Constants.IS_FREE_LOGIN_QUERY + login + "'";
+
+        try {
+            ResultSet uniqueLogin = statement.executeQuery(isFreeLoginQuery);
+            if (uniqueLogin.next()) {
+                return false;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -58,8 +81,8 @@ public class JDBCKnightDao implements KnightDao {
         Knight knight = null;
 
         try (Statement statement = connection.createStatement()) {
-            String queryProductData = "SELECT name, price, description FROM mydb.users where name = '" + name + "'";
-            ResultSet rs = statement.executeQuery(queryProductData);
+            String queryByName = Constants.QUERY_BY_NAME + name + "'";
+            ResultSet rs = statement.executeQuery(queryByName);
             if (rs.next()) {
                 knight = extractFromResultSet(rs);
             }
@@ -67,6 +90,21 @@ public class JDBCKnightDao implements KnightDao {
             e.printStackTrace();
         }
         return knight;
+    }
+
+    public boolean findByLogin(String login, String password) {
+        String isValidUser = Constants.IS_VALID_USER_QUERY + login + "'";
+
+        try (Statement statement = connection.createStatement()) {
+
+            ResultSet rs = statement.executeQuery(isValidUser);
+            if (!rs.next() || !rs.getString("password").equals(password)) {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 
     @Override

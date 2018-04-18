@@ -2,6 +2,7 @@ package ua.training.model.dao.implement;
 
 import ua.training.model.dao.ProductDao;
 import ua.training.model.entity.Product;
+import ua.training.model.util.Constants;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -20,14 +21,6 @@ public class JDBCProductDao implements ProductDao {
 
     @Override
     public boolean create(Product product) {
-        String queryAddUser = "INSERT INTO mydb.users (name, age, email, login, password) VALUES ('"
-                + product.getName() + "', '" + product.getDescription() + "', '" + product.getPrice() + "')";
-
-        try (Statement statement = connection.createStatement()) {
-            statement.execute(queryAddUser);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
         return true;
     }
 
@@ -42,6 +35,7 @@ public class JDBCProductDao implements ProductDao {
         product.setName(rs.getString("name"));
         product.setDescription(rs.getString("description"));
         product.setPrice(rs.getInt("price"));
+        product.setType(rs.getString("type"));
 
         return product;
     }
@@ -52,7 +46,7 @@ public class JDBCProductDao implements ProductDao {
         Product product = null;
 
         try (Statement statement = connection.createStatement()) {
-            String queryProductData = "SELECT name, price, description FROM mydb.products where name = '" + name + "'";
+            String queryProductData = Constants.PRODUCT_NAME_QUERY + name + "'";
             ResultSet rs = statement.executeQuery(queryProductData);
             if (rs.next()) {
                 product = extractFromResultSet(rs);
@@ -65,11 +59,40 @@ public class JDBCProductDao implements ProductDao {
 
     @Override
     public List<Product> findAll() {
-        List<Product> all = new ArrayList<Product>();
+        List<Product> all = new ArrayList<>();
 
+        Product product = null;
+
+        try (Statement statement = connection.createStatement()) {
+            String findAllQuery = Constants.FIND_ALL_QUERY;
+            ResultSet rs = statement.executeQuery(findAllQuery);
+            while (rs.next()) {
+                product = extractFromResultSet(rs);
+                all.add(product);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return all;
     }
 
+    public List<Product> findByDesc(String description) {
+        List<Product> all = new ArrayList<>();
+
+        Product product = null;
+
+        try (Statement statement = connection.createStatement()) {
+            String findByDescQuery = Constants.FIND_BY_DESC_QUERY + description + "'";
+            ResultSet rs = statement.executeQuery(findByDescQuery);
+            while (rs.next()) {
+                product = extractFromResultSet(rs);
+                all.add(product);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return all;
+    }
 
     @Override
     public boolean update(Product product) {
