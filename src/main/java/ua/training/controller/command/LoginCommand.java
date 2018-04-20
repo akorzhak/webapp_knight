@@ -1,31 +1,30 @@
+/*
+ * LoginCommand
+ *
+ * Description: This command is a part of the Knight web app.
+ *
+ * By: Alyona Korzhakova
+ *
+ * Created: 2018/04/10
+ *
+ * Updated: 2018/04/20
+ */
 package ua.training.controller.command;
 
-import ua.training.model.dao.DaoFactory;
-import ua.training.model.dao.KnightDao;
-import ua.training.model.dao.implement.JDBCDaoFactory;
-import ua.training.model.util.Constants;
+import ua.training.model.services.LoginService;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Lets the existing user log into system.
+ */
 public class LoginCommand implements Command {
 
-    private DaoFactory daoFactory = new JDBCDaoFactory();
-    private KnightDao knightDao = daoFactory.createKnightDao();
+    private LoginService loginService = new LoginService();
 
     @Override
     public String execute(HttpServletRequest request) {
-        String page;
-        String login = request.getParameter(Constants.PARAM_NAME_LOGIN);
-        String pass = request.getParameter(Constants.PARAM_NAME_PASSWORD);
 
-        if (knightDao.findByLogin(login, pass)) {
-            request.setAttribute("user", login);
-            page = "/success_signin.jsp";
-        }
-        else {
-            request.setAttribute("invalidLogin", Constants.INVALID_LOGIN);
-            page = "/login.jsp";
-        }
-        return page;
+        return loginService.formPage(request);
     }
 }

@@ -1,5 +1,19 @@
+/*
+ * CommandEnum
+ *
+ * Description: This command enum is a part of the Knight web app.
+ *
+ * By: Alyona Korzhakova
+ *
+ * Created: 2018/04/10
+ *
+ * Updated: 2018/04/20
+ */
 package ua.training.controller.command;
 
+/**
+ * Enumerates all existing commands and creates Command instance according to the requested command name.
+ */
 public enum CommandEnum {
 
     REGISTER {
@@ -9,12 +23,12 @@ public enum CommandEnum {
     },
     SHOW_ALL_AMMUNITION {
         {
-            this.command = new ShowAmmunitionCommand();
+            this.command = new DisplayAllCommand();
         }
     },
-    CALCULATE_AMMUNITION {
+    SORT_AMMUNITION {
         {
-            this.command = new CalculateAmmunitionCommand();
+            this.command = new DisplaySelectionCommand();
         }
     },
     LOGIN {

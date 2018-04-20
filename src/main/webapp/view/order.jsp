@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
    <head>
       <title>Ideal Ammunition</title>
       <link rel="stylesheet" type="text/css" href="style.css">
-      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
    </head>
    <style>
       body {
@@ -31,8 +31,8 @@
    </style>
    <body>
       <div class="b">
-         <a href="/home.jsp" ><button class="button">Go to Home Page</button></a>
-         <a href="/login.jsp" ><button class="button">Sign In!</button></a> &nbsp
+         <a href="/view/home.jsp" ><button class="button">Go to Home Page</button></a>
+         <a href="/view/login.jsp" ><button class="button">Sign In!</button></a> &nbsp
       </div>
       <br/><br/>
       <center>
@@ -48,7 +48,7 @@
             <div>
                <p>Calculate Your Ideal Set</p>
                <form name="orderForm" method="GET" action="servlet" >
-                  <input type="hidden" name="command" value="calculate_ammunition"/>
+                  <input type="hidden" name="command" value="sort_ammunition"/>
                   Preferable price:
                   <select name="pricetype">
                      <option value="low price">Low</option>

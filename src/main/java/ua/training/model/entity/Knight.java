@@ -1,15 +1,13 @@
 /*
  * Knight
  *
- * Description: This source file is a part of the
- * web app, that provides registration form, takes input,
- * checks it for validity and records to database.
+ * Description: This source file is a part of the Knight web app.
  *
  * By: Alyona Korzhakova
  *
- * Created: 2018/03/22
+ * Created: 2018/04/10
  *
- * Updated: 2018/03/25
+ * Updated: 2018/04/20
  */
 package ua.training.model.entity;
 

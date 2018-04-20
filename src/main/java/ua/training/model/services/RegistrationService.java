@@ -1,3 +1,14 @@
+/*
+ * RegistrationService
+ *
+ * Description: This source file is a part of the Knight web app.
+ *
+ * By: Alyona Korzhakova
+ *
+ * Created: 2018/04/10
+ *
+ * Updated: 2018/04/20
+ */
 package ua.training.model.services;
 
 import ua.training.model.dao.DaoFactory;
@@ -8,9 +19,9 @@ import ua.training.model.util.Constants;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class KnightCreatorService {
+public class RegistrationService {
 
-    private LoginLogicService loginLogicService = new LoginLogicService();
+    private UserLogicService loginLogicService = new UserLogicService();
     private DaoFactory daoFactory = new JDBCDaoFactory();
     private KnightDao knightDao = daoFactory.createKnightDao();
 
@@ -38,7 +49,7 @@ public class KnightCreatorService {
      */
     public String registerKnight(HttpServletRequest request, Knight knight) {
 
-        String page = "/registration.jsp";
+        String page = "/view/registration.jsp";
 
         if (!loginLogicService.isValidUser(knight)) {
             request.setAttribute("invalidInputMessage", Constants.INVALID_DATA);
@@ -47,7 +58,7 @@ public class KnightCreatorService {
         } else {
             request.setAttribute("userName", knight.getName());
             request.setAttribute("userCreated", Constants.USER_CREATED);
-            page = "/success_signup.jsp";
+            page = "/view/success_signup.jsp";
         }
         return page;
     }

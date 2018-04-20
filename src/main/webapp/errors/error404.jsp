@@ -26,7 +26,7 @@
 		<p style="font-size:160%;">Requested page ${pageContext.errorData.requestURI} is not found.
 		<br/>
 		Status code: ${pageContext.errorData.statusCode}<br/><br/><br/>
-		<a href="/home.jsp"><button class="button">Go to Home Page</button></a>
+		<a href="/view/home.jsp"><button class="button">Go to Home Page</button></a>
 		</p></div>
 		</div>
 </body>

@@ -1,12 +1,19 @@
+/*
+ * UserLogicService
+ *
+ * Description: This source file is a part of the Knight web app.
+ *
+ * By: Alyona Korzhakova
+ *
+ * Created: 2018/04/10
+ *
+ * Updated: 2018/04/20
+ */
 package ua.training.model.services;
 
 import ua.training.model.entity.Knight;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
-    public class LoginLogicService {
+    public class UserLogicService {
 
     private boolean isValidName(String name){
         System.out.println(name);
