@@ -39,7 +39,7 @@
          <div class="request">
             <div>
                <p>View Full Product List</p>
-               <form name="showAmmunition" method="GET" action="servlet" >
+               <form name="showAmmunition" method="GET" action="/servlet" >
                   <input type="hidden" name="command" value="show_all_ammunition"/>
                   <br/><br/>
                   <input type="submit" class="button" value="show all">
@@ -47,7 +47,7 @@
             </div>
             <div>
                <p>Calculate Your Ideal Set</p>
-               <form name="orderForm" method="GET" action="servlet" >
+               <form name="orderForm" method="GET" action="/servlet" >
                   <input type="hidden" name="command" value="sort_ammunition"/>
                   Preferable price:
                   <select name="pricetype">

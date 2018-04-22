@@ -69,3 +69,12 @@
 0:0:0:0:0:0:0:1 - - [20/Apr/2018:13:18:44 +0300] "GET /view/servlet?command=show_all_ammunition HTTP/1.1" 404 969 http-bio-8888-exec-10 5
 0:0:0:0:0:0:0:1 - - [20/Apr/2018:13:19:00 +0300] "GET /servlet?command=show_all_ammunition HTTP/1.1" 404 964 http-bio-8888-exec-7 490
 0:0:0:0:0:0:0:1 - - [20/Apr/2018:13:19:30 +0300] "GET /servlet?command=show_all_ammunition HTTP/1.1" 404 964 http-bio-8888-exec-9 14
+0:0:0:0:0:0:0:1 - - [20/Apr/2018:19:26:19 +0300] "GET / HTTP/1.1" 200 1268 http-bio-8888-exec-1 424
+0:0:0:0:0:0:0:1 - - [20/Apr/2018:19:26:38 +0300] "GET /favicon.ico HTTP/1.1" 404 968 http-bio-8888-exec-5 76
+0:0:0:0:0:0:0:1 - - [20/Apr/2018:19:26:41 +0300] "GET /view/registration.jsp HTTP/1.1" 200 1372 http-bio-8888-exec-6 22
+0:0:0:0:0:0:0:1 - - [20/Apr/2018:19:26:44 +0300] "GET /view/order.jsp HTTP/1.1" 200 2029 http-bio-8888-exec-7 63
+0:0:0:0:0:0:0:1 - - [20/Apr/2018:19:26:46 +0300] "GET /view/servlet?command=show_all_ammunition HTTP/1.1" 404 969 http-bio-8888-exec-10 7
+0:0:0:0:0:0:0:1 - - [20/Apr/2018:19:27:12 +0300] "GET /view/servlet?command=show_all_ammunition HTTP/1.1" 404 969 http-bio-8888-exec-10 18
+0:0:0:0:0:0:0:1 - - [20/Apr/2018:19:28:28 +0300] "GET / HTTP/1.1" 200 1268 http-bio-8888-exec-1 160
+0:0:0:0:0:0:0:1 - - [20/Apr/2018:19:28:32 +0300] "GET /view/order.jsp HTTP/1.1" 200 2031 http-bio-8888-exec-5 1502
+0:0:0:0:0:0:0:1 - - [20/Apr/2018:19:28:34 +0300] "GET /servlet?command=show_all_ammunition HTTP/1.1" 200 8565 http-bio-8888-exec-6 474
